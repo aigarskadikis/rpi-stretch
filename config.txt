@@ -195,7 +195,7 @@ hdmi_force_hotplug=1
 ##     1        CEA
 ##     2        DMT
 ##
-#hdmi_group=1
+hdmi_group=1
 
 ## hdmi_mode
 ##     defines screen resolution in CEA or DMT format
@@ -297,7 +297,7 @@ hdmi_force_hotplug=1
 ##     85                                       720p      60Hz
 ##     86                                       1366x768        reduced blanking
 ##
-#hdmi_mode=1
+#hdmi_mode=16
 
 ## config_hdmi_boost
 ##     configure the signal strength of the HDMI interface.
@@ -732,7 +732,7 @@ disable_overscan=1
 ##              and SDRAM.
 ##              Overclocking of h264_freq, v3d_freq and isp_freq is allowed.
 ##
-#force_turbo=0
+force_turbo=0
 
 ## initial_turbo
 ##     Enables turbo mode from boot for the given value in seconds (up to 60)
@@ -815,7 +815,7 @@ gpu_freq=500
 ##
 ##     Default 400.
 ##
-sdram_freq=500
+sdram_freq=580
 
 ## sdram_freq_min
 ##     Minimum frequency of SDRAM in MHz (used for dynamic clocking).
@@ -1198,3 +1198,9 @@ dtparam=audio=on
 #dtoverlay=lirc-rpi
 
 # Additional overlays and parameters are documented /boot/overlays/README
+
+sdram_schmoo=0x02000020
+over_voltage_sdram_p=6
+over_voltage_sdram_i=4
+over_voltage_sdram_c=4
+

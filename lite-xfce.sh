@@ -27,16 +27,24 @@ sudo apt-get install git -y
 
 #video player
 sudo apt-get install omxplayer -y
+#install option to select OMXPlayer from appliacitions.
+#in this way I can create new file associations to mp4, mkv
 cp omxplayer.desktop /usr/share/applications
 
 #install chromium browser
 sudo apt-get install chromium-browser -y
 
-#install text redactor
+#install text editor like notepad
 sudo apt-get install geany -y
 
 #install password manager
 sudo apt-get install keepass2 -y
+
+#install samba client so I can browse samba shares smb
+apt-get install smbclient -y
+
+#install audio player and audio plugins
+apt-get install lxmusic xmms2-plugin-all -y
 
 #install arial and other windows fonts
 apt-get install ttf-mscorefonts-installer -y && fc-cache -f -v
