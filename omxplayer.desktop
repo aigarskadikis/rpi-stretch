@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=OMXPLayer
+GenericName=OMX Video Player
+Exec=xfce4-terminal -e "omxplayer %F -r"
+Icon=video
+Terminal=false
+Categories=GTK;Multimedia;IDE;
+MimeType=video/mp4;video/x-matroska;
+StartupNotify=true
+Keywords=Video;

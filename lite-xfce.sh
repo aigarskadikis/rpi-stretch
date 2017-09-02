@@ -28,6 +28,16 @@ sudo apt-get install git -y
 #install chromium browser
 sudo apt-get install chromium-browser -y
 
+#video player
+sudo apt-get install omxplayer -y
+cp omxplayer.desktop /usr/share/applications
+
+#install text redactor
+sudo apt-get install geany -y
+
+#install password manager
+sudo apt-get install keepass2 -y
+
 #for compiling other programs
 sudo apt-get install build-essential -y
 
