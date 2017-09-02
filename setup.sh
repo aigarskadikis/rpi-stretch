@@ -55,4 +55,3 @@ grep "hdmi_force_hotplug=.$" /boot/config.txt
 #else
 #echo "gpu_mem=128">> /boot/config.txt
 #fi
-
