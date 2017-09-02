@@ -38,6 +38,23 @@ sudo apt-get install geany -y
 #install password manager
 sudo apt-get install keepass2 -y
 
+#install arial and other windows fonts
+apt-get install ttf-mscorefonts-installer -y && fc-cache -f -v
+
+#install youtube downloader
+apt-get install youtube-dl -y
+
+#upgrade youtube downloader tools
+pip install --upgrade youtube-dl
+
+#clipboard manager
+apt-get install parcellite -y
+
+#install screenshot manager and editor
+apt-get install shutter -y
+
+
+
 #for compiling other programs
 sudo apt-get install build-essential -y
 
