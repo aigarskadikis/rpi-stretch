@@ -53,8 +53,6 @@ apt-get install parcellite -y
 #install screenshot manager and editor
 apt-get install shutter -y
 
-
-
 #for compiling other programs
 sudo apt-get install build-essential -y
 
