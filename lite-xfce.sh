@@ -45,6 +45,7 @@ apt-get install ttf-mscorefonts-installer -y && fc-cache -f -v
 apt-get install youtube-dl -y
 
 #upgrade youtube downloader tools
+apt-get install python-pip -y
 pip install --upgrade youtube-dl
 
 #clipboard manager
