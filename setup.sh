@@ -16,13 +16,13 @@ pip install --upgrade youtube-dl
 apt-get install parcellite -y
 
 #photo editor
-apt-get install gimp -y
+#apt-get install gimp -y
+
+#install screenshot manager and editor
+apt-get install shutter -y
 
 #install audio player and audio plugins
 apt-get install lxmusic xmms2-plugin-all -y
-
-#install screenshot manager
-apt-get install shutter -y
 
 #install openbox desktop configuration utility
 apt-get install obconf -y
