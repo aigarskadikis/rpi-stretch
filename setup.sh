@@ -19,7 +19,7 @@ apt-get install parcellite -y
 apt-get install gimp -y
 
 #install audio player and audio plugins
-apt-get install abraca xmms2-plugin-all -y
+apt-get install lxmusic xmms2-plugin-all -y
 
 #install screenshot manager
 apt-get install shutter -y
@@ -33,26 +33,26 @@ sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIcon
 #prepare compilling tools to compile programs and stuff
 apt-get install build-essential libx11-dev libgtk-3-dev wmctrl git -y
 
-#remove black borders
-sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
-grep "disable_overscan=" /boot/config.txt
+echo remove black borders
+sed -i "s/^.*disable_overscan=.$/disable_overscan=1/" /boot/config.txt
+grep "disable_overscan=.$" /boot/config.txt
 
-#force video to hdmi
-sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
-grep "hdmi_force_hotplug=" /boot/config.txt
+echo force video to hdmi
+sed -i "s/^.*hdmi_force_hotplug=.$/hdmi_force_hotplug=1/" /boot/config.txt
+grep "hdmi_force_hotplug=.$" /boot/config.txt
 
-sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
-grep "hdmi_group=" /boot/config.txt
+#sed -i "s/^.*hdmi_group=.$/hdmi_group=1/" /boot/config.txt
+#grep "hdmi_group=.$" /boot/config.txt
 
 #set hdmi resulution to full hd
-sed -i "s/^.*hdmi_mode=.*$/hdmi_mode=16/" /boot/config.txt
-grep "hdmi_mode=" /boot/config.txt
+#sed -i "s/^.*hdmi_mode=.$/hdmi_mode=16/" /boot/config.txt
+#grep "hdmi_mode=" /boot/config.txt
 
 #set video size
-grep "gpu_mem=" /boot/config.txt
-if [ $? -eq 0 ]; then
-sed -i "s/^.*gpu_mem=.*$/gpu_mem=128/" /boot/config.txt
-else
-echo "gpu_mem=128">> /boot/config.txt
-fi
+#grep "gpu_mem=" /boot/config.txt
+#if [ $? -eq 0 ]; then
+#sed -i "s/^.*gpu_mem=.*$/gpu_mem=128/" /boot/config.txt
+#else
+#echo "gpu_mem=128">> /boot/config.txt
+#fi
 
