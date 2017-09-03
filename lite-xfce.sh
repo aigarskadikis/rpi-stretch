@@ -39,6 +39,8 @@ sudo apt-get install geany -y
 
 #install password manager
 sudo apt-get install keepass2 -y
+#autotype for keepass2
+sudo apt-get install xdotool -y
 
 #install samba client so I can browse samba shares smb
 apt-get install smbclient -y
