@@ -37,6 +37,9 @@ sudo apt-get install chromium-browser -y
 #install text editor like notepad
 sudo apt-get install geany -y
 
+#install deluge thin client. server must be installed on other computer
+sudo apt-get install deluge-gtk -y
+
 #install password manager
 sudo apt-get install keepass2 -y
 #autotype for keepass2

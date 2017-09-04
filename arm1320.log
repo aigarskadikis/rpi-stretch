@@ -1,0 +1,52 @@
+[3J[H[2J[96mRaspberry Pi Benchmark Test
+Author: AikonCWD
+Version: 3.0
+[97m
+temp=47.2'C
+arm_freq=1320
+sdram_freq=580
+gpu_freq=500
+sd_clock=50.000 MHz
+[93m
+Running InternetSpeed test...[94m
+Ping: 11.737 ms
+Download: 67.84 Mbit/s
+Upload: 65.02 Mbit/s
+[93m
+Running CPU test...[94m
+ total time: 12.2276s
+ min: 4.75ms
+ avg: 4.89ms
+ max: 23.74ms
+temp=51.5'C
+[93m
+Running THREADS test...[94m
+ total time: 11.3460s
+ min: 4.12ms
+ avg: 4.54ms
+ max: 50.52ms
+temp=52.1'C
+[93m
+Running MEMORY test...[94m
+Operations performed: 3145728 (2162056.33 ops/sec)
+3072.00 MB transferred (2111.38 MB/sec)
+ total time: 1.4550s
+ min: 0.00ms
+ avg: 0.00ms
+ max: 13.85ms
+temp=52.6'C
+[93m
+Running HDPARM test...[94m
+ Timing buffered disk reads:  62 MB in  3.03 seconds =  20.46 MB/sec
+temp=47.8'C
+[93m
+Running DD WRITE test...[94m
+536870912 bytes (537 MB, 512 MiB) copied, 46.3831 s, 11.6 MB/s
+temp=47.2'C
+[93m
+Running DD READ test...[94m
+536870912 bytes (537 MB, 512 MiB) copied, 24.9913 s, 21.5 MB/s
+temp=46.2'C
+[0m
+[91mAikonCWD's rpi-benchmark completed![0m
+
