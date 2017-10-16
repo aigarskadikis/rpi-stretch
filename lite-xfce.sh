@@ -19,6 +19,9 @@ sudo apt-get install --no-install-recommends xinit -y
 #install xfce stuff. xfwm is also needed but the package is already included in dependencies  of xfce
 sudo apt-get install xfce4 xfce4-terminal -y
 
+#allow thunar to generate video thumbnails
+sudo apt-get install tumbler-plugins-extra
+
 #bring back raspiban standart configuration tool
 sudo apt-get install rc-gui -y
 
