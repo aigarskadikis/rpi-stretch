@@ -34,6 +34,9 @@ cp omxplayer.desktop /usr/share/applications
 #install chromium browser
 sudo apt-get install chromium-browser -y
 
+#install netsurf web browser. very fast. by default it disables javascript
+sudo apt-get install netsurf -y
+
 #install text editor like notepad
 sudo apt-get install geany -y
 
