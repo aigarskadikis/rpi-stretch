@@ -70,6 +70,12 @@ pip install --upgrade youtube-dl
 #clipboard manager
 apt-get install parcellite -y
 
+#mail
+apt-get install claws-mail -y
+
+#audio editor
+apt-get install audacity -y
+
 #install screenshot manager and editor
 apt-get install shutter -y
 
