@@ -45,6 +45,8 @@ sudo apt-get install geany -y
 
 #install deluge thin client. server must be installed on other computer
 sudo apt-get install deluge-gtk -y
+#to download files locally
+sudo apt-get install python-libtorrent  -y
 
 #install password manager
 sudo apt-get install keepass2 -y
@@ -73,8 +75,26 @@ apt-get install parcellite -y
 #mail
 apt-get install claws-mail -y
 
+#remote desktop client
+apt-get install remmina -y
+
+#prepare anyconnect
+apt-get install network-manager-openconnect -y
+mkdir /etc/vpnc
+mv vpnc-script /etc/vpnc/vpnc-script
+chmod u+x /etc/vpnc/vpnc-script
+#use anyconnect vpn with
+#sudo openconnect --script /etc/vpnc/vpnc-script <your_vpn_connection_address>
+
 #audio editor
 apt-get install audacity -y
+
+#extract archives like 7z, xz
+apt-get install xarchiver -y
+apt-get install xz-utils
+
+#simple image viewer
+apt-get install gpicview -y
 
 #install screenshot manager and editor
 apt-get install shutter -y
