@@ -99,6 +99,9 @@ apt-get install gpicview -y
 #install screenshot manager and editor
 apt-get install shutter -y
 
+#screen recording software
+apt-get install gtk-recordmydesktop -y
+
 #for compiling other programs
 #sudo apt-get install build-essential -y
 
