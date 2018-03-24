@@ -20,7 +20,7 @@ sudo apt-get install --no-install-recommends xinit -y
 sudo apt-get install xfce4 xfce4-terminal -y
 
 #allow thunar to generate video thumbnails
-sudo apt-get install tumbler-plugins-extra
+sudo apt-get install tumbler-plugins-extra -y
 
 #bring back raspiban standart configuration tool
 sudo apt-get install rc-gui -y
@@ -102,6 +102,11 @@ apt-get install shutter -y
 #screen recording software
 apt-get install gtk-recordmydesktop -y
 
+#install epub reader
+apt-get install calibre -y
+
 #for compiling other programs
 #sudo apt-get install build-essential -y
+
+
 
