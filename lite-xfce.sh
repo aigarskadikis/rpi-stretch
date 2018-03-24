@@ -102,8 +102,14 @@ apt-get install shutter -y
 #screen recording software
 apt-get install gtk-recordmydesktop -y
 
-#install epub reader
+#epub reader
 apt-get install calibre -y
+
+#firefox web browser
+apt-get install iceweasel -y
+
+#fdf reader
+apt-get install xpdf -y
 
 #for compiling other programs
 #sudo apt-get install build-essential -y
