@@ -28,6 +28,9 @@ sudo apt-get install rc-gui -y
 #install git. since every automation hosts under github
 sudo apt-get install git -y
 
+#install colored text editor
+sudo apt-get install vim -y
+
 #video player
 sudo apt-get install omxplayer -y
 #install option to select OMXPlayer from appliacitions.
