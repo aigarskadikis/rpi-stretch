@@ -117,5 +117,12 @@ apt-get install xpdf -y
 #for compiling other programs
 #sudo apt-get install build-essential -y
 
-
+cat > /usr/bin/repo_update << EOF
+#!/bin/bash
+eval \`ssh-agent -s\`
+git add .
+git commit -m next
+git push origin master
+EOF
+chmod +x /usr/bin/repo_update
 
