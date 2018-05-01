@@ -22,7 +22,7 @@ sudo apt-get install xfce4 xfce4-terminal -y
 #allow thunar to generate video thumbnails
 sudo apt-get install tumbler-plugins-extra -y
 
-#bring back raspiban standart configuration tool
+#bring back raspbian standart configuration tool
 sudo apt-get install rc-gui -y
 
 #install git. since every automation hosts under github
@@ -82,10 +82,10 @@ apt-get install claws-mail -y
 apt-get install remmina -y
 
 #prepare anyconnect
-apt-get install network-manager-openconnect -y
-mkdir /etc/vpnc
-mv vpnc-script /etc/vpnc/vpnc-script
-chmod u+x /etc/vpnc/vpnc-script
+#apt-get install network-manager-openconnect -y
+#mkdir /etc/vpnc
+#mv vpnc-script /etc/vpnc/vpnc-script
+#chmod u+x /etc/vpnc/vpnc-script
 #use anyconnect vpn with
 #sudo openconnect --script /etc/vpnc/vpnc-script <your_vpn_connection_address>
 
@@ -119,10 +119,14 @@ apt-get install xpdf -y
 
 cat > /usr/bin/repo_update << EOF
 #!/bin/bash
-eval \`ssh-agent -s\`
 git add .
 git commit -m next
 git push origin master
 EOF
 chmod +x /usr/bin/repo_update
 
+cat > /usr/bin/renew-youtube-channel << EOF
+#!/bin/bash
+youtube-dl -i --download-archive archive.log https://www.youtube.com/{channel,user}/\$(pwd|sed "s/^.*,//g")/videos
+EOF
+chmod +x /usr/bin/renew-youtube-channel
