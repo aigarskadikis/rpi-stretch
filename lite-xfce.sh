@@ -10,6 +10,9 @@ sudo apt-get dist-upgrade -y
 #clean
 sudo apt-get clean -y
 
+#update repos
+sudo apt-get update -y
+
 #install xorg server. this is basic stuff if I want GUI
 sudo apt-get install --no-install-recommends xserver-xorg -y
 
@@ -79,7 +82,7 @@ apt-get install parcellite -y
 apt-get install claws-mail -y
 
 #remote desktop client
-apt-get install remmina -y
+#apt-get install remmina -y
 
 #prepare anyconnect
 #apt-get install network-manager-openconnect -y
@@ -90,7 +93,7 @@ apt-get install remmina -y
 #sudo openconnect --script /etc/vpnc/vpnc-script <your_vpn_connection_address>
 
 #audio editor
-apt-get install audacity -y
+#apt-get install audacity -y
 
 #extract archives like 7z, xz
 apt-get install xarchiver -y
@@ -103,7 +106,7 @@ apt-get install gpicview -y
 apt-get install shutter -y
 
 #screen recording software
-apt-get install gtk-recordmydesktop -y
+#apt-get install gtk-recordmydesktop -y
 
 #epub reader
 apt-get install calibre -y
