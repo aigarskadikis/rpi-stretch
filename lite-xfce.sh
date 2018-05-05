@@ -117,6 +117,9 @@ apt-get install iceweasel -y
 #fdf reader
 apt-get install xpdf -y
 
+#kodi media player to play youtube on-the-fly
+apt-get install kodi -y
+
 #for compiling other programs
 #sudo apt-get install build-essential -y
 
@@ -133,3 +136,14 @@ cat > /usr/bin/renew-youtube-channel << EOF
 youtube-dl -i --download-archive archive.log https://www.youtube.com/{channel,user}/\$(pwd|sed "s/^.*,//g")/videos
 EOF
 chmod +x /usr/bin/renew-youtube-channel
+
+#resolution
+sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
+sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
+sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
+
+#set 128MB RAM for graphics
+echo "gpu_mem=128">> /boot/config.txt
+
+#disable wifi
+echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
