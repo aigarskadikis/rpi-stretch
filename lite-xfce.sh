@@ -128,8 +128,24 @@ git push origin master
 EOF
 chmod +x /usr/bin/repo_update
 
+#renew one youtube channel based on directory name like 'md.twins,mauroreyesbest' or 'marlon.alves,UCkOfNQYegVUzsADNNZNOH2g'
 cat > /usr/bin/renew-youtube-channel << EOF
 #!/bin/bash
 youtube-dl -i --download-archive archive.log https://www.youtube.com/{channel,user}/\$(pwd|sed "s/^.*,//g")/videos
 EOF
 chmod +x /usr/bin/renew-youtube-channel
+
+#renew all channels. this command are supposed to run in ~/Videos dir
+cat > /usr/bin/renew-all-channels << EOF
+#!/bin/bash
+dirs=\$(ls -1 | grep "," | sed '$aanother' | sed '$aline')
+echo "\$dirs"
+printf %s "\$dirs" | while IFS= read -r one
+do {
+echo \$one
+cd \$one
+renew-youtube-channel
+cd ..
+} done
+EOF
+chmod +x /usr/bin/renew-all-channels
