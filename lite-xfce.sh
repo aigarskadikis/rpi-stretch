@@ -141,7 +141,7 @@ chmod +x /usr/bin/renew-youtube-channel
 #renew all channels. this command are supposed to run in ~/Videos dir
 cat > /usr/bin/renew-all-channels << EOF
 #!/bin/bash
-dirs=\$(ls -1 | grep "," | sed '$aanother' | sed '$aline')
+dirs=\$(ls -1 | grep "," | sed -e '\$aanother')
 echo "\$dirs"
 printf %s "\$dirs" | while IFS= read -r one
 do {
