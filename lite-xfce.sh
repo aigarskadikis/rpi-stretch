@@ -185,4 +185,10 @@ echo "gpu_mem=128">> /boot/config.txt
 #disable wifi
 echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
 
+#copy panel settings
+rm -rf /home/pi/.config #remove existing settings
+cd ~/rpi-stretch/home
+cp -R * /home/pi
+chown -R pi. /home/pi
+
 reboot
