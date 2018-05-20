@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#apt-get update -y && apt-get install git -y && cd && git clone https://github.com/catonrug/rpi-stretch.git && cd rpi-stretch.git && ./lite-xfce.sh
+#apt-get update -y && apt-get install git -y && cd && git clone https://github.com/catonrug/rpi-stretch.git && cd rpi-stretch && ./lite-xfce.sh
 
 #update repos
 sudo apt-get update -y
