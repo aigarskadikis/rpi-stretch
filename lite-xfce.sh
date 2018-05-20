@@ -189,7 +189,7 @@ echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
 #copy panel settings
 rm -rf /home/pi/.config #remove existing settings
 cd ~/rpi-stretch/home
-cp -R * /home/pi
+cp -R . /home/pi
 chown -R pi. /home/pi
 
 reboot
