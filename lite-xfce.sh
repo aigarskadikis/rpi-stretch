@@ -181,3 +181,4 @@ echo "gpu_mem=128">> /boot/config.txt
 #disable wifi
 echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
 
+reboot
