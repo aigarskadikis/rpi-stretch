@@ -78,7 +78,8 @@ apt-get install youtube-dl -y
 #upgrade youtube downloader tools
 apt-get install python-pip -y
 pip install --upgrade youtube-dl
-cd ~/Music
+mkdir -p /home/pi/Music
+cd /home/pi/Music
 youtube-dl -f140 https://www.youtube.com/watch?v=e82CHtDTaSk #C. Tangana - Mala Mujer
 youtube-dl -f140 https://www.youtube.com/watch?v=_ZIAMhomyr0 #Nekfeu - On verra INSTRUMENTALE
 youtube-dl -f140 https://www.youtube.com/watch?v=CWYJuy89QU0 #KAASI - Lucy Stone
