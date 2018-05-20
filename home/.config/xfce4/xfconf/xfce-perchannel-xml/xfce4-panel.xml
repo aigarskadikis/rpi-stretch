@@ -54,6 +54,7 @@
       <property name="names-visible" type="array">
         <value type="string" value="deluge"/>
         <value type="string" value="lxmusic"/>
+        <value type="string" value="shutter"/>
         <value type="string" value="thunar"/>
         <value type="string" value="parcellite"/>
       </property>
