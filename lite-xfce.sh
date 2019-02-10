@@ -138,5 +138,7 @@ chown -R pi. /home/pi
 # screen recording software
 # apt install gtk-recordmydesktop -y
 
+# 
+curl -L https://github.com/catonrug/xbmc-lattelecom.tv/archive/master.zip > ~/Downloads/xbmc-lattelecom.tv.zip
 
 reboot
