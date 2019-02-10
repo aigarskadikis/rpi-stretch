@@ -63,10 +63,21 @@ sudo apt -y install xdotool
 sudo apt -y install lxmusic xmms2-plugin-all
 
 #install arial and other windows fonts
-sudo apt install ttf-mscorefonts-installer -y && fc-cache -f -v
+sudo apt -y install ttf-mscorefonts-installer && fc-cache -f -v
 
 # install pip
 sudo apt -y install python-pip
+
+# firefox web browser
+sudo apt -y install iceweasel
+
+# pdf reader
+sudo apt -y install xpdf
+
+# kodi media player to play youtube on-the-fly
+sudo apt -y install kodi
+# download plugin for kodi
+curl -L https://github.com/catonrug/xbmc-lattelecom.tv/archive/master.zip > ~/Downloads/xbmc-lattelecom.tv.zip
 
 # install youtube doownloader
 sudo pip install --upgrade youtube-dl
@@ -76,69 +87,30 @@ youtube-dl -f140 https://www.youtube.com/watch?v=_ZIAMhomyr0 #Nekfeu - On verra 
 youtube-dl -f140 https://www.youtube.com/watch?v=CWYJuy89QU0 #KAASI - Lucy Stone
 youtube-dl -f140 https://www.youtube.com/watch?v=bnm2uYDld9w #Harmonia do samba - Escreveu não leu
 
-
-# firefox web browser
-apt install iceweasel -y
-
-#fdf reader
-apt install xpdf -y
-
-#kodi media player to play youtube on-the-fly
-apt install kodi -y
+# resolution
+sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
+sudo sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
+sudo sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
 
 
-cat > /usr/bin/repo_update << EOF
-#!/bin/bash
-git add .
-git commit -m next
-git push origin master
-EOF
-chmod +x /usr/bin/repo_update
+sudo su
 
-#renew one youtube channel based on directory name like 'md.twins,mauroreyesbest' or 'marlon.alves,UCkOfNQYegVUzsADNNZNOH2g'
-cat > /usr/bin/renew-youtube-channel << EOF
-#!/bin/bash
-youtube-dl -i --download-archive archive.log https://www.youtube.com/{channel,user}/\$(pwd|sed "s/^.*,//g")/videos
-EOF
-chmod +x /usr/bin/renew-youtube-channel
-
-#renew all channels. this command are supposed to run in ~/Videos dir
-cat > /usr/bin/renew-all-channels << EOF
-#!/bin/bash
-dirs=\$(ls -1 | grep "," | sed -e '\$aanother')
-echo "\$dirs"
-printf %s "\$dirs" | while IFS= read -r one
-do {
-echo \$one
-cd \$one
-renew-youtube-channel
-cd ..
-} done
-EOF
-chmod +x /usr/bin/renew-all-channels
-
-#resolution
-sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
-sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
-sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
-
-#set 128MB RAM for graphics
+# set 128MB RAM for graphics
 echo "gpu_mem=128">> /boot/config.txt
 
-#disable wifi
+# disable wifi
 echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
 
-#copy panel settings
-#rm -rf /home/pi/.config #remove existing settings
-cd ~/rpi-stretch/home
-cp -R . /home/pi
-chown -R pi. /home/pi
+# copy panel settings
+# rm -rf /home/pi/.config #remove existing settings
+# cd ~/rpi-stretch/home
+# cp -R . /home/pi
+# chown -R pi. /home/pi
 
 
 # screen recording software
 # apt install gtk-recordmydesktop -y
 
 # 
-curl -L https://github.com/catonrug/xbmc-lattelecom.tv/archive/master.zip > ~/Downloads/xbmc-lattelecom.tv.zip
 
-reboot
+poweroff
