@@ -3,6 +3,9 @@
 # this is tested and works on the top of:
 # http://director.downloads.raspberrypi.org/raspbian/images/raspbian-2018-11-15/2018-11-13-raspbian-stretch.zip
 
+# to automatically setup
+# cd && curl https://raw.githubusercontent.com/catonrug/rpi-stretch/master/lite-xfce.sh > install.sh && sudo chmod +x install.sh && time ./install.sh
+
 # update repos
 sudo apt -y update
 
