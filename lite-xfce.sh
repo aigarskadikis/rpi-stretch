@@ -35,8 +35,18 @@ sudo apt -y install omxplayer
 sudo cp omxplayer.desktop /usr/share/applications
 # this only set integration on native XFCE desktop, not on pure openbox
 
+# set time zone
+sudo cp /usr/share/zoneinfo/Etc/GMT-2 /etc/localtime
+
+
 #clipboard manager
 sudo apt -y install parcellite
+
+# epub reader
+sudo apt -y install calibre
+
+# install screenshot manager and editor
+sudo apt -y install shutter
 
 #extract archives like 7z, xz
 sudo apt -y install xarchiver xz-utils
@@ -67,16 +77,7 @@ youtube-dl -f140 https://www.youtube.com/watch?v=CWYJuy89QU0 #KAASI - Lucy Stone
 youtube-dl -f140 https://www.youtube.com/watch?v=bnm2uYDld9w #Harmonia do samba - Escreveu não leu
 
 
-#install screenshot manager and editor
-apt install shutter -y
-
-#screen recording software
-#apt install gtk-recordmydesktop -y
-
-#epub reader
-apt install calibre -y
-
-#firefox web browser
+# firefox web browser
 apt install iceweasel -y
 
 #fdf reader
@@ -85,8 +86,6 @@ apt install xpdf -y
 #kodi media player to play youtube on-the-fly
 apt install kodi -y
 
-#for compiling other programs
-#sudo apt install build-essential -y
 
 cat > /usr/bin/repo_update << EOF
 #!/bin/bash
@@ -134,5 +133,10 @@ echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
 cd ~/rpi-stretch/home
 cp -R . /home/pi
 chown -R pi. /home/pi
+
+
+# screen recording software
+# apt install gtk-recordmydesktop -y
+
 
 reboot
