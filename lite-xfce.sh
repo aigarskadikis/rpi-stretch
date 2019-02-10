@@ -17,26 +17,15 @@ sudo apt-get clean -y
 #update repos
 sudo apt-get update -y
 
-#install xorg server. this is basic stuff if I want GUI
-sudo apt-get install --no-install-recommends xserver-xorg -y
-
-#startup, reboot, poweroff is an init. this is necesarry
-sudo apt-get install --no-install-recommends xinit -y
-
 #install xfce stuff. xfwm is also needed but the package is already included in dependencies  of xfce
-sudo apt-get install xfce4 xfce4-terminal -y
+apt -y install xfce4 xfce4-terminal
 
 #allow thunar to generate video thumbnails
-sudo apt-get install tumbler-plugins-extra -y
+apt -y install tumbler-plugins-extra
 
-#bring back raspbian standart configuration tool
-sudo apt-get install rc-gui -y
 
-#install git. since every automation hosts under github
-sudo apt-get install git -y
+sudo update-alternatives --config x-session-manager
 
-#install colored text editor
-sudo apt-get install vim -y
 
 #video player
 sudo apt-get install omxplayer -y
@@ -44,14 +33,6 @@ sudo apt-get install omxplayer -y
 #in this way I can create new file associations to mp4, mkv
 cp omxplayer.desktop /usr/share/applications
 
-#install chromium browser
-sudo apt-get install chromium-browser -y
-
-#install netsurf web browser. very fast. by default it disables javascript
-sudo apt-get install netsurf -y
-
-#install text editor like notepad
-sudo apt-get install geany -y
 
 #install deluge thin client. server must be installed on other computer
 sudo apt-get install deluge-gtk -y
