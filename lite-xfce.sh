@@ -6,6 +6,7 @@
 # to automatically setup
 # cd && curl https://raw.githubusercontent.com/catonrug/rpi-stretch/master/lite-xfce.sh > install.sh && sudo chmod +x install.sh && time ./install.sh
 
+
 # update repos
 sudo apt -y update
 
@@ -35,14 +36,37 @@ echo 6 | sudo update-alternatives --config x-session-manager
 sudo apt -y install omxplayer
 # install option to select OMXPlayer from appliacitions.
 # in this way I can create new file associations to mp4, mkv
-sudo cp omxplayer.desktop /usr/share/applications
-# this only set integration on native XFCE desktop, not on pure openbox
+
+# set global application with name "OMXPlayer"
+sudo cat <<'EOF'> /usr/share/applications/omxplayer.desktop
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=OMXPLayer
+GenericName=OMX Video Player
+Exec=xfce4-terminal -e "omxplayer %F -r"
+Icon=video
+Terminal=false
+Categories=GTK;Multimedia;IDE;
+MimeType=video/mp4;video/x-matroska;
+StartupNotify=true
+Keywords=Video;
+EOF
+
+# set association in current user profile
+cat <<'EOF'> ~/.config/mimeapps.list
+[Default Applications]
+video/x-matroska=omxplayer.desktop
+video/mp4=omxplayer.desktop
+EOF
 
 # set time zone
 sudo cp /usr/share/zoneinfo/Etc/GMT-2 /etc/localtime
 
+# install vim
+sudo apt -y install vim
 
-#clipboard manager
+# clipboard manager
 sudo apt -y install parcellite
 
 # epub reader
@@ -90,13 +114,18 @@ youtube-dl -f140 https://www.youtube.com/watch?v=_ZIAMhomyr0 #Nekfeu - On verra 
 youtube-dl -f140 https://www.youtube.com/watch?v=CWYJuy89QU0 #KAASI - Lucy Stone
 youtube-dl -f140 https://www.youtube.com/watch?v=bnm2uYDld9w #Harmonia do samba - Escreveu não leu
 
-# resolution
+# install rclone
+curl https://rclone.org/install.sh | sudo bash
+
+
+# remove black borders
 sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
+
+# allow HDMI to be hotpluged
 sudo sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
 sudo sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
 
 
-sudo su
 
 # set 128MB RAM for graphics
 echo "gpu_mem=128">> /boot/config.txt
@@ -116,4 +145,4 @@ echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
 
 # 
 
-poweroff
+sudo poweroff
