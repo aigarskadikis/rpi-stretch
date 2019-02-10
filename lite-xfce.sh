@@ -6,7 +6,6 @@
 # to automatically setup
 # cd && curl https://raw.githubusercontent.com/catonrug/rpi-stretch/master/lite-xfce.sh > install.sh && sudo chmod +x install.sh && time ./install.sh
 
-
 # update repos
 sudo apt -y update
 
@@ -38,8 +37,7 @@ sudo apt -y install omxplayer
 # in this way I can create new file associations to mp4, mkv
 
 # set global application with name "OMXPlayer"
-sudo cat <<'EOF'> /usr/share/applications/omxplayer.desktop
-[Desktop Entry]
+echo '[Desktop Entry]
 Type=Application
 Version=1.0
 Name=OMXPLayer
@@ -50,8 +48,7 @@ Terminal=false
 Categories=GTK;Multimedia;IDE;
 MimeType=video/mp4;video/x-matroska;
 StartupNotify=true
-Keywords=Video;
-EOF
+Keywords=Video;' | sudo tee /usr/share/applications/omxplayer.desktop
 
 # set association in current user profile
 cat <<'EOF'> ~/.config/mimeapps.list
@@ -117,7 +114,6 @@ youtube-dl -f140 https://www.youtube.com/watch?v=bnm2uYDld9w #Harmonia do samba 
 # install rclone
 curl https://rclone.org/install.sh | sudo bash
 
-
 # remove black borders
 sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
 
@@ -125,24 +121,13 @@ sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
 sudo sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
 sudo sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
 
-
-
 # set 128MB RAM for graphics
-echo "gpu_mem=128">> /boot/config.txt
+echo "gpu_mem=128" | sudo tee -a /boot/config.txt
 
 # disable wifi
-echo "dtoverlay=pi3-disable-wifi">> /boot/config.txt
-
-# copy panel settings
-# rm -rf /home/pi/.config #remove existing settings
-# cd ~/rpi-stretch/home
-# cp -R . /home/pi
-# chown -R pi. /home/pi
-
+echo "dtoverlay=pi3-disable-wifi" | sudo tee -a /boot/config.txt
 
 # screen recording software
 # apt install gtk-recordmydesktop -y
-
-# 
 
 sudo poweroff
