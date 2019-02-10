@@ -1,130 +1,92 @@
 #!/bin/bash
 
-#apt-get update -y && apt-get install git -y && cd && git clone https://github.com/catonrug/rpi-stretch.git && cd rpi-stretch && ./lite-xfce.sh
+# this is tested and works on the top of:
+# http://director.downloads.raspberrypi.org/raspbian/images/raspbian-2018-11-15/2018-11-13-raspbian-stretch.zip
 
-#update repos
-sudo apt-get update -y
+# update repos
+sudo apt -y update
 
-#update system
-sudo apt-get upgrade -y
+# update system
+sudo apt -y upgrade
 
-#upgrade os
-sudo apt-get dist-upgrade -y
+# upgrade os
+sudo apt -y dist-upgrade
 
-#clean
-sudo apt-get clean -y
+# clean
+sudo apt -y clean
 
-#update repos
-sudo apt-get update -y
+# update repos
+sudo apt -y update
 
-#install xfce stuff. xfwm is also needed but the package is already included in dependencies  of xfce
-apt -y install xfce4 xfce4-terminal
+# install xfce stuff
+sudo apt -y install xfce4 xfce4-terminal tumbler-plugins-extra
+# this will bring us:
+# * window snapping feature
+# * wallpaper changer
+# * allow thunar to generate thumbnails videos and pics
 
-#allow thunar to generate video thumbnails
-apt -y install tumbler-plugins-extra
+# swithc default desktop to XFCE4
+echo 6 | sudo update-alternatives --config x-session-manager
 
+# video player
+sudo apt -y install omxplayer
+# install option to select OMXPlayer from appliacitions.
+# in this way I can create new file associations to mp4, mkv
+sudo cp omxplayer.desktop /usr/share/applications
+# this only set integration on native XFCE desktop, not on pure openbox
 
-sudo update-alternatives --config x-session-manager
+#clipboard manager
+sudo apt -y install parcellite
 
+#extract archives like 7z, xz
+sudo apt -y install xarchiver xz-utils
 
-#video player
-sudo apt-get install omxplayer -y
-#install option to select OMXPlayer from appliacitions.
-#in this way I can create new file associations to mp4, mkv
-cp omxplayer.desktop /usr/share/applications
+# install deluge thin client. server must be installed on other computer
+sudo apt -y install deluge-gtk python-libtorrent
 
-
-#install deluge thin client. server must be installed on other computer
-sudo apt-get install deluge-gtk -y
-#to download files locally
-sudo apt-get install python-libtorrent  -y
-
-#install password manager
-sudo apt-get install keepass2 -y
-#autotype for keepass2
-sudo apt-get install xdotool -y
-
-#install samba client so I can browse samba shares smb
-apt-get install smbclient -y
+# install password manager
+sudo apt -y install keepass2
+# autotype for keepass2
+sudo apt -y install xdotool
 
 #install audio player and audio plugins
-apt-get install lxmusic xmms2-plugin-all -y
+sudo apt -y install lxmusic xmms2-plugin-all
 
 #install arial and other windows fonts
-apt-get install ttf-mscorefonts-installer -y && fc-cache -f -v
+sudo apt install ttf-mscorefonts-installer -y && fc-cache -f -v
 
-#install youtube downloader
-apt-get install youtube-dl -y
+# install pip
+sudo apt -y install python-pip
 
-#upgrade youtube downloader tools
-apt-get install python-pip -y
-pip install --upgrade youtube-dl
-mkdir -p /home/pi/Music
-cd /home/pi/Music
+# install youtube doownloader
+sudo pip install --upgrade youtube-dl
+cd ~/Music
 youtube-dl -f140 https://www.youtube.com/watch?v=e82CHtDTaSk #C. Tangana - Mala Mujer
 youtube-dl -f140 https://www.youtube.com/watch?v=_ZIAMhomyr0 #Nekfeu - On verra INSTRUMENTALE
 youtube-dl -f140 https://www.youtube.com/watch?v=CWYJuy89QU0 #KAASI - Lucy Stone
 youtube-dl -f140 https://www.youtube.com/watch?v=bnm2uYDld9w #Harmonia do samba - Escreveu não leu
 
-#clipboard manager
-apt-get install parcellite -y
-
-#mail
-apt-get install claws-mail -y
-
-#configure automatic login
-        if [ -e /etc/init.d/lightdm ]; then
-          systemctl set-default graphical.target
-          ln -fs /lib/systemd/system/getty@.service /etc/systemd/system/getty.target.wants/getty@tty1.service
-          sed /etc/lightdm/lightdm.conf -i -e "s/^autologin-user=.*/#autologin-user=/"
-          disable_raspi_config_at_boot
-        else
-          whiptail --msgbox "Do 'sudo apt-get install lightdm' to allow configuration of boot to desktop" 20 60 2
-          return 1
-        fi
-
-
-#remote desktop client
-#apt-get install remmina -y
-
-#prepare anyconnect
-#apt-get install network-manager-openconnect -y
-#mkdir /etc/vpnc
-#mv vpnc-script /etc/vpnc/vpnc-script
-#chmod u+x /etc/vpnc/vpnc-script
-#use anyconnect vpn with
-#sudo openconnect --script /etc/vpnc/vpnc-script <your_vpn_connection_address>
-
-#audio editor
-#apt-get install audacity -y
-
-#extract archives like 7z, xz
-apt-get install xarchiver -y
-apt-get install xz-utils
-
-#simple image viewer
-apt-get install gpicview -y
 
 #install screenshot manager and editor
-apt-get install shutter -y
+apt install shutter -y
 
 #screen recording software
-#apt-get install gtk-recordmydesktop -y
+#apt install gtk-recordmydesktop -y
 
 #epub reader
-apt-get install calibre -y
+apt install calibre -y
 
 #firefox web browser
-apt-get install iceweasel -y
+apt install iceweasel -y
 
 #fdf reader
-apt-get install xpdf -y
+apt install xpdf -y
 
 #kodi media player to play youtube on-the-fly
-apt-get install kodi -y
+apt install kodi -y
 
 #for compiling other programs
-#sudo apt-get install build-essential -y
+#sudo apt install build-essential -y
 
 cat > /usr/bin/repo_update << EOF
 #!/bin/bash
