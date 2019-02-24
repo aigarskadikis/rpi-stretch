@@ -50,6 +50,8 @@ MimeType=video/mp4;video/x-matroska;
 StartupNotify=true
 Keywords=Video;' | sudo tee /usr/share/applications/omxplayer.desktop
 
+
+
 # set association in current user profile
 cat <<'EOF'> ~/.config/mimeapps.list
 [Default Applications]
@@ -110,6 +112,19 @@ youtube-dl -f140 https://www.youtube.com/watch?v=e82CHtDTaSk #C. Tangana - Mala 
 youtube-dl -f140 https://www.youtube.com/watch?v=_ZIAMhomyr0 #Nekfeu - On verra INSTRUMENTALE
 youtube-dl -f140 https://www.youtube.com/watch?v=CWYJuy89QU0 #KAASI - Lucy Stone
 youtube-dl -f140 https://www.youtube.com/watch?v=bnm2uYDld9w #Harmonia do samba - Escreveu não leu
+
+# install youtube channel management through directory structure
+echo '#!/bin/bash
+dirs=$(ls -1 | grep "," | sed -e '$aanother')
+echo "$dirs"
+printf %s "$dirs" | while IFS= read -r one
+do {
+echo $one
+cd $one
+renew-youtube-channel
+cd ..
+} done' | sudo tee /usr/bin/renew-all-channels
+sudo chmod +x /usr/bin/renew-all-channels
 
 # install rclone
 curl https://rclone.org/install.sh | sudo bash
