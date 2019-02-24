@@ -100,6 +100,9 @@ sudo apt -y install iceweasel
 # pdf reader
 sudo apt -y install xpdf
 
+# install jq utility
+sudo apt -y install jq
+
 # kodi media player to play youtube on-the-fly
 sudo apt -y install kodi
 # download plugin for kodi
@@ -114,16 +117,12 @@ youtube-dl -f140 https://www.youtube.com/watch?v=CWYJuy89QU0 #KAASI - Lucy Stone
 youtube-dl -f140 https://www.youtube.com/watch?v=bnm2uYDld9w #Harmonia do samba - Escreveu não leu
 
 # install youtube channel management through directory structure
-echo '#!/bin/bash
-dirs=$(ls -1 | grep "," | sed -e '$aanother')
-echo "$dirs"
-printf %s "$dirs" | while IFS= read -r one
-do {
-echo $one
-cd $one
-renew-youtube-channel
-cd ..
-} done' | sudo tee /usr/bin/renew-all-channels
+cd
+curl -s "https://catonrug.blogspot.com/feeds/posts/default/5255522565948307079?alt=json" | jq -r '.entry|.content|."$t"' | sudo base64 --decode > renew-youtube-channel
+sudo mv renew-youtube-channel /usr/bin
+sudo chmod +x /usr/bin/renew-youtube-channel
+curl -s "https://catonrug.blogspot.com/feeds/posts/default/905125781365764435?alt=json" | jq -r '.entry|.content|."$t"' | sudo base64 --decode > renew-all-channels
+sudo mv renew-all-channels /usr/bin
 sudo chmod +x /usr/bin/renew-all-channels
 
 # install rclone
