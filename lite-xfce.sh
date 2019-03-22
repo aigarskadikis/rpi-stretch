@@ -74,8 +74,8 @@ sudo apt -y install calibre
 # install screenshot manager and editor
 sudo apt -y install shutter
 
-#extract archives like 7z, xz
-sudo apt -y install xarchiver xz-utils
+#extract archives like 7z, xz, rar
+sudo apt -y install xarchiver xz-utils unrar-free
 
 # install deluge thin client. server must be installed on other computer
 sudo apt -y install deluge-gtk python-libtorrent
