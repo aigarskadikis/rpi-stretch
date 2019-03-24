@@ -50,8 +50,6 @@ MimeType=video/mp4;video/x-matroska;
 StartupNotify=true
 Keywords=Video;' | sudo tee /usr/share/applications/omxplayer.desktop
 
-
-
 # set association in current user profile
 mkdir -p ~/.config
 cat <<'EOF'> ~/.config/mimeapps.list
@@ -86,10 +84,10 @@ sudo apt -y install keepass2
 # autotype for keepass2
 sudo apt -y install xdotool
 
-#install audio player and audio plugins
+# install audio player and audio plugins
 sudo apt -y install lxmusic xmms2-plugin-all
 
-#install arial and other windows fonts
+# install arial and other windows fonts
 sudo apt -y install ttf-mscorefonts-installer && fc-cache -f -v
 
 # install pip
@@ -126,7 +124,7 @@ curl -s "https://catonrug.blogspot.com/feeds/posts/default/905125781365764435?al
 sudo mv renew-all-channels /usr/bin
 sudo chmod +x /usr/bin/renew-all-channels
 
-# install rclone
+# install rclone. sync files with google drive on demand or via scheduled task
 curl https://rclone.org/install.sh | sudo bash
 
 # remove black borders
@@ -136,10 +134,10 @@ sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
 sudo sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
 sudo sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
 
-# set 128MB RAM for graphics
+# set 128MB RAM for graphics. so the kodi works natively in 1920x1080 resolution and some flash player videos would work without lag
 echo "gpu_mem=128" | sudo tee -a /boot/config.txt
 
-# disable wifi
+# disable wifi to allow a litle bit overclock CPU if decided
 echo "dtoverlay=pi3-disable-wifi" | sudo tee -a /boot/config.txt
 
 # screen recording software
