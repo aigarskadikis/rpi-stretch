@@ -94,7 +94,7 @@ sudo apt -y install ttf-mscorefonts-installer && fc-cache -f -v
 sudo apt -y install python-pip
 
 # google chrome browser
-sudo apt -y install chromium-bsu
+sudo apt -y install chromium-browser
 
 # firefox web browser
 sudo apt -y install iceweasel
@@ -111,7 +111,6 @@ sudo apt -y install kodi
 mkdir ~/Download
 curl -L https://github.com/catonrug/xbmc-lattelecom.tv/archive/master.zip > ~/Downloads/xbmc-lattelecom.tv.zip
 cd
-
 # install youtube doownloader
 sudo pip install --upgrade youtube-dl
 sudo apt -y install ffmpeg # writing DASH m4a. Only some players support this container. Install ffmpeg or avconv to fix this automatically.
