@@ -125,6 +125,13 @@ sudo mv renew-all-channels /usr/bin
 sudo chmod +x /usr/bin/renew-all-channels
 
 # install rclone. sync files with google drive on demand or via scheduled task
+
+if [ -f "rclone.conf" ]; then
+mkdir -p ~/.config/rclone
+if [ ! -f "~/.config/rclone/rclone.conf" ]; then
+cp rclone.conf ~/.config/rclone
+fi
+fi
 curl https://rclone.org/install.sh | sudo bash
 
 # remove black borders
@@ -134,7 +141,7 @@ sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
 sudo sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
 sudo sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
 
-# set 128MB RAM for graphics. so the kodi works natively in 1920x1080 resolution and some flash player videos would work without lag
+# set 128MB RAM for graphics so the kodi works natively in 1920x1080 resolution and some flash player videos via chromium would work without lag
 echo "gpu_mem=128" | sudo tee -a /boot/config.txt
 
 # disable wifi to allow a litle bit overclock CPU if decided
