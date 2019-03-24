@@ -53,6 +53,7 @@ Keywords=Video;' | sudo tee /usr/share/applications/omxplayer.desktop
 
 
 # set association in current user profile
+mkdir -p ~/.config
 cat <<'EOF'> ~/.config/mimeapps.list
 [Default Applications]
 video/x-matroska=omxplayer.desktop
