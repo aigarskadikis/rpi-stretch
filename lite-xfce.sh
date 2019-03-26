@@ -71,6 +71,9 @@ sudo apt -y install vim
 # clipboard manager
 sudo apt -y install parcellite
 
+# for picture viewing
+sudo apt -y install gpicview
+
 # epub reader
 sudo apt -y install calibre
 
