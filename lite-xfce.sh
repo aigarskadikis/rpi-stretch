@@ -112,7 +112,7 @@ sudo apt -y install jq
 # kodi media player to play youtube on-the-fly
 sudo apt -y install kodi
 # download plugin for kodi
-mkdir ~/Download
+mkdir -p ~/Downloads
 curl -L https://github.com/catonrug/xbmc-lattelecom.tv/archive/master.zip > ~/Downloads/xbmc-lattelecom.tv.zip
 cd
 # install youtube doownloader
