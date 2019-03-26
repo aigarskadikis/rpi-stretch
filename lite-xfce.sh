@@ -74,6 +74,9 @@ sudo apt -y install parcellite
 # epub reader
 sudo apt -y install calibre
 
+# nice notepad
+sudo apt -y install geany
+
 # install screenshot manager and editor
 sudo apt -y install shutter
 
@@ -140,6 +143,8 @@ if [ -f "rclone.conf" ]; then
 mkdir -p ~/.config/rclone
 if [ ! -f "~/.config/rclone/rclone.conf" ]; then
 cp rclone.conf ~/.config/rclone
+mkdir -p ~/Pictures
+rclone -vv sync Pictures:Pictures ~/Pictures
 fi
 fi
 curl https://rclone.org/install.sh | sudo bash
