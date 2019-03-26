@@ -61,6 +61,10 @@ EOF
 # set time zone
 sudo cp /usr/share/zoneinfo/Etc/GMT-2 /etc/localtime
 
+sudo apt -y install gvfs gvfs-backends gvfs-common gvfs-daemons gvfs-fuse gvfs-libs
+sudo apt -y install libsmbclient samba-common samba-libs
+sudo apt -y install python3-smbus python-smbus
+
 # install vim
 sudo apt -y install vim
 
