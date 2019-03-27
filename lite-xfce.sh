@@ -146,11 +146,11 @@ if [ -f "rclone.conf" ]; then
 mkdir -p ~/.config/rclone
 if [ ! -f "~/.config/rclone/rclone.conf" ]; then
 cp rclone.conf ~/.config/rclone
+curl https://rclone.org/install.sh | sudo bash
 mkdir -p ~/Pictures
 rclone -vv sync Pictures:Pictures ~/Pictures
 fi
 fi
-curl https://rclone.org/install.sh | sudo bash
 
 # remove black borders
 sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
