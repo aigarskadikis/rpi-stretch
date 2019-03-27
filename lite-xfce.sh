@@ -98,7 +98,7 @@ sudo apt -y install xdotool
 sudo apt -y install lxmusic xmms2-plugin-all
 
 # install arial and other windows fonts
-sudo apt -y install ttf-mscorefonts-installer && fc-cache -f -v
+# sudo apt -y install ttf-mscorefonts-installer && fc-cache -f -v
 
 # install pip
 sudo apt -y install python-pip
@@ -107,7 +107,7 @@ sudo apt -y install python-pip
 sudo apt -y install chromium-browser
 
 # firefox web browser
-sudo apt -y install iceweasel
+# sudo apt -y install iceweasel
 
 # pdf reader
 sudo apt -y install xpdf
@@ -167,5 +167,7 @@ echo "dtoverlay=pi3-disable-wifi" | sudo tee -a /boot/config.txt
 
 # screen recording software
 # apt install gtk-recordmydesktop -y
+
+sudo rpi-update
 
 sudo poweroff
