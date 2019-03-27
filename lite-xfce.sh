@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# cp /boot/lite-xfce.sh .
+# cp /boot/rclone.conf .
+# sed -i "s/\r//" lite-xfce.sh
+
 # this is tested and works on the top of:
 # http://director.downloads.raspberrypi.org/raspbian/images/raspbian-2018-11-15/2018-11-13-raspbian-stretch.zip
 
