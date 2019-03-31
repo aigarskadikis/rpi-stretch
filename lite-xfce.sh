@@ -180,4 +180,5 @@ sudo poweroff
 # pi auto login
 # set right keyboard layout
 # install github ssh key
-
+# new workspace for xfce
+# remove composite effects
