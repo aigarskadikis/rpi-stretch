@@ -175,3 +175,9 @@ echo "dtoverlay=pi3-disable-wifi" | sudo tee -a /boot/config.txt
 sudo rpi-update
 
 sudo poweroff
+
+# to do list:
+# pi auto login
+# set right keyboard layout
+# install github ssh key
+
