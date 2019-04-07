@@ -153,6 +153,9 @@ cp rclone.conf ~/.config/rclone
 curl https://rclone.org/install.sh | sudo bash
 mkdir -p ~/Pictures
 rclone -vv sync Pictures:Pictures ~/Pictures
+# list all direcotries in dropbox root folder
+rclone lsd dropbox:/ --max-depth 1
+
 fi
 fi
 
