@@ -108,13 +108,13 @@ sudo apt -y install lxmusic xmms2-plugin-all
 sudo apt -y install python-pip
 
 # google chrome browser
-sudo apt -y install chromium-browser
+sudo apt -y install rpi-chromium-mods
 
 # firefox web browser
 # sudo apt -y install iceweasel
 
-# pdf reader
-sudo apt -y install xpdf
+# pdf reader with full screen support. based on KDE4
+sudo apt -y install okular
 
 # install jq utility
 sudo apt -y install jq
