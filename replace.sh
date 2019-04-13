@@ -76,6 +76,8 @@ sudo apt -y install vim
 # clipboard manager
 sudo apt -y install parcellite
 
+# pdf viewer
+sudo apt -y install mupdf
 
 # epub reader
 sudo apt -y install calibre
