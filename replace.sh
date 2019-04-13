@@ -46,7 +46,7 @@ sudo apt -y install xfce4 xfce4-terminal tumbler-plugins-extra
 # this will bring us:
 # * window snapping feature
 # * wallpaper changer
-# * allow thunar to generate thumbnails videos and pics
+# * allow thunar to generate thumbnails for videos and pics
 
 # swithc default desktop to XFCE4
 echo 6 | sudo update-alternatives --config x-session-manager

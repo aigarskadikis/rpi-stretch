@@ -1,6 +1,0 @@
-
-
-
-if [ -f "$HOME/chromium.tar" ] ; then
-	tar xf "$HOME/chromium.tar" -C /chromium/
-fi
