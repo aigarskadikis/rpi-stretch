@@ -1,20 +1,9 @@
 #!/bin/bash
 
-# cp /boot/lite-xfce.sh .
-# cp /boot/rclone.conf .
-# sed -i "s/\r//" lite-xfce.sh
-
-# this is tested and works on the top of:
-# http://director.downloads.raspberrypi.org/raspbian/images/raspbian-2018-11-15/2018-11-13-raspbian-stretch.zip
-
-# to automatically setup
-# cd && curl https://raw.githubusercontent.com/catonrug/rpi-stretch/master/lite-xfce.sh > install.sh && sudo chmod +x install.sh && time ./install.sh
-
 # update repos
 sudo apt -y update
 
 sudo apt -y remove vlc
-chro	
 sudo apt -y autoremove
 
 sudo mkdir -p /chromium
@@ -27,7 +16,7 @@ sudo mount /chromium
 # cd /chromium && tar cf ~/chromium.tar chromium/ && cd
 # rm -rf /chromium/chromium
 # tar xf ~/chromium.tar -C /chromium/
-
+# chromium-browser --user-data-dir=/chromium/chromium/
 
 # update system
 sudo apt -y upgrade
@@ -79,11 +68,7 @@ video/mp4=omxplayer.desktop
 EOF
 
 # set time zone
-sudo cp /usr/share/zoneinfo/Etc/GMT-2 /etc/localtime
-
-sudo apt -y install gvfs gvfs-backends gvfs-common gvfs-daemons gvfs-fuse gvfs-libs
-sudo apt -y install libsmbclient samba-common samba-libs
-sudo apt -y install python3-smbus python-smbus
+# sudo cp /usr/share/zoneinfo/Etc/GMT-2 /etc/localtime
 
 # install vim
 sudo apt -y install vim
@@ -91,8 +76,6 @@ sudo apt -y install vim
 # clipboard manager
 sudo apt -y install parcellite
 
-# for picture viewing
-sudo apt -y install gpicview
 
 # epub reader
 sudo apt -y install calibre
@@ -122,12 +105,6 @@ sudo apt -y install lxmusic xmms2-plugin-all
 
 # install pip
 sudo apt -y install python-pip
-
-# google chrome browser
-sudo apt -y install rpi-chromium-mods
-
-# firefox web browser
-# sudo apt -y install iceweasel
 
 # pdf reader with full screen support. based on KDE4
 sudo apt -y install okular
@@ -174,22 +151,6 @@ rclone lsd dropbox:/ --max-depth 1
 
 fi
 fi
-
-# remove black borders
-sudo sed -i "s/^.*disable_overscan=.*$/disable_overscan=1/" /boot/config.txt
-
-# allow HDMI to be hotpluged
-sudo sed -i "s/^.*hdmi_force_hotplug=.*$/hdmi_force_hotplug=1/" /boot/config.txt
-sudo sed -i "s/^.*hdmi_group=.*$/hdmi_group=1/" /boot/config.txt
-
-# set 128MB RAM for graphics so the kodi works natively in 1920x1080 resolution and some flash player videos via chromium would work without lag
-echo "gpu_mem=128" | sudo tee -a /boot/config.txt
-
-# disable wifi to allow a litle bit overclock CPU if decided
-echo "dtoverlay=pi3-disable-wifi" | sudo tee -a /boot/config.txt
-
-# screen recording software
-# apt install gtk-recordmydesktop -y
 
 sudo rpi-update
 
