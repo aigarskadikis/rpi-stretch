@@ -18,6 +18,9 @@ sudo mount /chromium
 # tar xf ~/chromium.tar -C /chromium/
 # chromium-browser --user-data-dir=/chromium/chromium/
 
+# do not allow to send language to different station
+sudo sed -i "s/SendEnv LANG LC/#SendEnv LANG LC/" /etc/ssh/ssh_config
+
 # update system
 sudo apt -y upgrade
 
