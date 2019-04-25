@@ -1,11 +1,10 @@
 #!/bin/bash
-
-rm -rf ~/Pictures/all && mkdir -p ~/Pictures/all
-
-images=$(ls -1 year*/* | grep -i -E "\.j.*g$" | sed "s|(|\\\\(|g;s|)|\\\\)|g;s| |\\\\ |g")
+source=/home/pi/Pictures
+destination=/usr/share/backgrounds
+sudo rm -rf "$destination" && sudo mkdir -p "$destination"
+images=$(find $source | grep -i -E "\.j.*g$")
 echo "$images"
 printf %s "$images" | while IFS= read -r one
 do {
-ln -s "$(pwd)/$one" "$(pwd)/all/$(echo "$one" | sed "s/\//./g")"
+sudo ln -s "$one" "$destination/$(echo "$one" | sed "s|$source\/||;s/\//./g")"
 } done
-

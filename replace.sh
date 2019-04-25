@@ -18,6 +18,9 @@ sudo mount /chromium
 # tar xf ~/chromium.tar -C /chromium/
 # chromium-browser --user-data-dir=/chromium/chromium/
 
+# block advertisement in IP level
+curl -sL http://winhelp2002.mvps.org/hosts.txt | sudo tee -a /etc/hosts
+
 # do not allow to send language to different station
 sudo sed -i "s/SendEnv LANG LC/#SendEnv LANG LC/" /etc/ssh/ssh_config
 
