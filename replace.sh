@@ -16,7 +16,8 @@ sudo mount /chromium
 # cd /chromium && tar cf ~/chromium.tar chromium/ && cd
 # rm -rf /chromium/chromium
 # tar xf ~/chromium.tar -C /chromium/
-# chromium-browser --user-data-dir=/chromium/chromium/
+# chromium-browser --user-data-dir=/chromium/chromium
+# curl -s "https://catonrug.blogspot.com/feeds/posts/default/7934627218359482811?alt=json" | jq -r '.entry|.content|."$t"' | base64 --decode > ~/.profile
 
 # block advertisement in IP level
 curl -sL http://winhelp2002.mvps.org/hosts.txt | sudo tee -a /etc/hosts
@@ -45,6 +46,9 @@ sudo apt -y install xfce4 xfce4-terminal tumbler-plugins-extra
 
 # swithc default desktop to XFCE4
 echo 6 | sudo update-alternatives --config x-session-manager
+
+# write support for ntfs file system
+sudo apt install ntfs-3g
 
 # video player
 sudo apt -y install omxplayer
